@@ -58,27 +58,29 @@ class LoginForm extends Component {
     return (
       <Form onSubmit={this.onSubmit}>
         <Form.Field error={!!errors.email}>
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="example@example.com"
-            value={data.email}
-            onChange={this.onChange}
-          />
+          <label htmlFor="email">Email
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="example@example.com"
+              value={data.email}
+              onChange={this.onChange}
+            />
+          </label>
           {errors.email && <InlineError text={errors.email} />}
         </Form.Field>
         <Form.Field error={!!errors.password}>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Make it secure"
-            value={data.password}
-            onChange={this.onChange}
-          />
+          <label htmlFor="password">Password
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Make it secure"
+              value={data.password}
+              onChange={this.onChange}
+            />
+          </label>
           {errors.password && <InlineError text={errors.password} />}
         </Form.Field>
         <Button primary>Login</Button>

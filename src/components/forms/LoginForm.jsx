@@ -30,6 +30,8 @@ class LoginForm extends Component {
     const { submit } = this.props;
     const errors = this.validate(data);
 
+    console.log('data:', submit);
+
     this.setState(() => ({
       errors,
     }));
@@ -54,7 +56,6 @@ class LoginForm extends Component {
 
   render() {
     const { data, errors, loading } = this.state;
-    console.log(data);
 
     return (
       <Form onSubmit={this.onSubmit} loading={loading}>

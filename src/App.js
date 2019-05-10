@@ -10,8 +10,8 @@ import GuestRoute from './components/routes/GuestRoute';
 const App = ({ location }) => (
   <div className="ui container">
     <Route location={location} path="/" exact component={HomePage} />
-    <Route location={location} path="/login" component={LoginPage} />
-    <Route location={location} path="/dashboard" component={DashboardPage} />
+    <GuestRoute location={location} path="/login" component={LoginPage} />
+    <UserRoute location={location} path="/dashboard" component={DashboardPage} />
   </div>
 );
 

@@ -8,7 +8,7 @@ import { login } from '../../actions/auth';
 class LoginPage extends Component {
   submit = (data) => {
     const { props } = this;
-    return props.login(data).then(() => props.history.push('/'));
+    return props.login(data).then(() => props.history.push('/dashboard'));
   };
 
   render() {

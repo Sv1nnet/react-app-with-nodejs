@@ -5,6 +5,7 @@ import ConfirmEmailMessage from '../messages/ConfirmEmailMessage';
 
 const DashboardPage = ({ isConfirmed }) => (
   <div>
+    <h1>Dashboard</h1>
     {!isConfirmed && <ConfirmEmailMessage />}
   </div>
 );
@@ -14,6 +15,7 @@ DashboardPage.propTypes = {
 };
 
 function mapStateToProps(state) {
+  console.log(state);
   return {
     isConfirmed: state.user.confirmed,
   };

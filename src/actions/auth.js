@@ -1,5 +1,6 @@
 import * as types from '../types';
 import api from '../api';
+import setAuthorizationHeader from '../utils/setAuthorizationHeader';
 
 const { USER_LOGGED_IN, USER_LOGGED_OUT } = types.default;
 
@@ -14,11 +15,13 @@ export const userLoggedOut = () => ({
 
 export const login = credentials => dispatch => api.user.login(credentials).then((user) => {
   localStorage.bookwormJWT = user.token;
+  setAuthorizationHeader(user.token);
   dispatch(userLoggedIn(user));
 });
 
 export const logout = () => (dispatch) => {
   localStorage.removeItem('bookwormJWT');
+  setAuthorizationHeader();
   dispatch(userLoggedOut());
 };
 

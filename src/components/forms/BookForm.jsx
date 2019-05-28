@@ -112,7 +112,7 @@ class BookForm extends Component {
     return (
       <Segment>
         <Form onSubmit={this.onSubmit} loading={loading}>
-          <Grid columns={2} fluid="true" stackable>
+          <Grid columns={2} stackable>
             <Grid.Row>
               <Grid.Column>
                 <Form.Field error={!!errors.title}>
@@ -146,11 +146,12 @@ class BookForm extends Component {
                 <Form.Field error={!!errors.pages}>
                   <label htmlFor="authors">Pages
                     <input
-                      type="number"
+                      disabled={!data.pages}
+                      type="text"
                       id="pages"
                       name="pages"
                       placeholder="Pages"
-                      value={data.pages}
+                      value={data.pages || 'Loading...'}
                       onChange={this.onChangeNumber}
                     />
                   </label>
@@ -181,7 +182,7 @@ BookForm.propTypes = {
     title: PropTypes.string.isRequired,
     authors: PropTypes.string.isRequired,
     covers: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-    pages: PropTypes.number.isRequired,
+    pages: PropTypes.number,
   }).isRequired,
 };
 

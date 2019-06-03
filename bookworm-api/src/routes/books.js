@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import express from 'express';
 import { parseString } from 'xml2js';
 import request from 'request-promise';
@@ -13,7 +14,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  Book.create({ book: req.body.book, userId: req.currentUser._id }).then(book => res.json({ book })).catch(err => res.status(400).json({ errors: parseErrors(err.errors) }));
+  Book.create({ ...req.body.book, userId: req.currentUser._id }).then(book => res.json({ book })).catch(err => res.status(400).json({ errors: parseErrors(err.errors) }));
 });
 
 router.get('/search', (req, res) => request

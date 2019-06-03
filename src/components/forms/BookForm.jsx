@@ -72,7 +72,10 @@ class BookForm extends Component {
 
     if (Object.keys(errors).length === 0) {
       this.setState(() => ({ loading: true }));
-      submit(data).catch(err => this.setState(() => ({ errors: err.response.data.errors, loading: false })));
+      submit(data).catch((err) => {
+        console.log('err', err);
+        this.setState(() => ({ errors: err.response.data.errors, loading: false }));
+      });
     }
   }
 
